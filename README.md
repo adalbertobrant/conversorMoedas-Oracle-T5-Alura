@@ -22,7 +22,7 @@ Tela do Conversor de Moedas
 
 ![](https://github.com/adalbertobrant/conversorMoedas-Oracle-T5-Alura/blob/main/imagens/telaConversorMoedas.png)
 
-Para fazer o download da aplicação , clique no lado direito dessa tela em **Releases**[](https://github.com/adalbertobrant/conversorMoedas-Oracle-T5-Alura/releases) você será direcionado para a página de versões.
+Para fazer o download da aplicação , clique no lado direito dessa tela em **[Releases](https://github.com/adalbertobrant/conversorMoedas-Oracle-T5-Alura/releases)**[](https://github.com/adalbertobrant/conversorMoedas-Oracle-T5-Alura/releases) você será direcionado para a página de versões.
 
 Na página de versões (Releases) você vai encontrar os arquivos zip da aplicação e também o arquivo executável em formato JAR.
 
