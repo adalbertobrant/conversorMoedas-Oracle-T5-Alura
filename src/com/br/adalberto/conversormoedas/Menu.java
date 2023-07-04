@@ -2,7 +2,6 @@ package com.br.adalberto.conversormoedas;
 
 import javax.swing.JFrame;
 import javax.swing.JComboBox;
-import javax.swing.JButton;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
