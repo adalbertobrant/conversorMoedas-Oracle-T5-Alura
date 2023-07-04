@@ -15,8 +15,8 @@ public class Menu {
     public Menu() {
     	frame = new JFrame("Menu");
         comboBox = new JComboBox<>(new String[]{"Conversor de Moedas"
-        		, "Conversor de Temperaturas"
-        		, "Conversor de Grandezas"});    
+        		//,// "Conversor de Temperaturas"
+        		/*, "Conversor de Grandezas"*/});    
     
     // Configurando a ação do JComboBox
 	    comboBox.addActionListener(new ActionListener() {
@@ -24,15 +24,15 @@ public class Menu {
 	        public void actionPerformed(ActionEvent e) {
 	            selectedOption = (String) comboBox.getSelectedItem();
 	            switch(selectedOption) {
-	            case "Conversor de Grandezas":
+	           /* case "Conversor de Grandezas":
 	            	openOtherScreen();
-	            	break;
+	            	break;*/
 	            case "Conversor de Moedas":
 	            	openOtherScreen();
 	            	break;
-	            case "Conversor de Temperaturas":
+	            /*case "Conversor de Temperaturas":
 	            	openOtherScreen();
-	            	break;
+	            	break;*/
 	            }
 	            /*if (selectedOption.equals("Conversor de Grandezas")) {
 	                // Navegar para a outra tela
@@ -44,6 +44,7 @@ public class Menu {
 	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    frame.setSize(800, 500);
 	    frame.add(comboBox);
+	    frame.setLocationRelativeTo(null);
 	    frame.setVisible(true);
     }
     
@@ -52,6 +53,7 @@ public class Menu {
     	switch (this.selectedOption) {
     		case "Conversor de Moedas":
     			TelaConversorMoedas telaMoedas = new TelaConversorMoedas(selectedOption);
+    			telaMoedas.setLocationRelativeTo(null);
     			telaMoedas.setVisible(true);
     			break;
     	}
