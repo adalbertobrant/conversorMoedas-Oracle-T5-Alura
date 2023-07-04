@@ -96,11 +96,11 @@ public class TelaConversorMoedas extends JFrame {
 
         
         if (fromCurrency.equals("Dólar") && toCurrency.equals("Real")) {
-            return amount * 5.35; 
+            return amount * 4.35; 
         } else if (fromCurrency.equals("Euro") && toCurrency.equals("Real")) {
-            return amount * 6.27; 
+            return amount * 5.27; 
         } else if (fromCurrency.equals("Libra") && toCurrency.equals("Real")) {
-            return amount * 7.18; 
+            return amount * 6.18; 
         } else {
             return 0; 
         }
