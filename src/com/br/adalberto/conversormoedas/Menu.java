@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 public class Menu {
 	private JFrame frame;
     private JComboBox<String> comboBox;
-    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
+    private String selectedOption;
     
     public Menu() {
     	frame = new JFrame("Menu");
@@ -48,7 +48,15 @@ public class Menu {
     }
     
     private void openOtherScreen() {
-        
+    	frame.dispose();
+    	switch (this.selectedOption) {
+    		case "Conversor de Moedas":
+    			TelaConversorMoedas telaMoedas = new TelaConversorMoedas(selectedOption);
+    			telaMoedas.setVisible(true);
+    			break;
+    	}
+    	
+    	
     }
     
     
