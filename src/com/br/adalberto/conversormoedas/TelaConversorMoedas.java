@@ -4,7 +4,6 @@ import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -22,6 +21,7 @@ public class TelaConversorMoedas extends JFrame {
     private String selectedOption;
     private String selectedCoin = "Real";
     private DefaultTableModel tableModel;
+    private JLabel statusLabel;
     private JTable conversionTable;
     private double amount;
 
@@ -31,6 +31,9 @@ public class TelaConversorMoedas extends JFrame {
         setSize(800, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
+        // Criação do JLabel
+        statusLabel = new JLabel();
+        add(statusLabel);
 
         // Criação do JComboBox
         String[] currencies = {"Dólar", "Euro", "Libra"};
@@ -50,9 +53,10 @@ public class TelaConversorMoedas extends JFrame {
                     double amount = parseAmount(input);
                     double convertedAmount = converterMoeda(amount, comboBox.getSelectedItem().toString(), selectedCoin);
                     adicionarConversaoNaTabela(comboBox.getSelectedItem().toString(), convertedAmount);
+                    exibirResultado();
                 } catch (NumberFormatException ex) {
                     exibirMensagemErro("Valor inválido. Insira um número válido.");
-                }
+                } 
             }
         });
         add(convertButton);
@@ -87,29 +91,27 @@ public class TelaConversorMoedas extends JFrame {
     }
 
     private double converterMoeda(double amount, String fromCurrency, String toCurrency) {
-        // Aqui você pode implementar a lógica de conversão de moedas
-        // Utilize as informações das moedas selecionadas e a quantidade inserida pelo usuário
-        // Retorne o valor convertido
+      
     	this.amount = amount;
 
-        // Exemplo de conversão fixa para demonstração
+        
         if (fromCurrency.equals("Dólar") && toCurrency.equals("Real")) {
-            return amount * 5.35; // Conversão de Dólar para Real
+            return amount * 5.35; 
         } else if (fromCurrency.equals("Euro") && toCurrency.equals("Real")) {
-            return amount * 6.27; // Conversão de Euro para Real
+            return amount * 6.27; 
         } else if (fromCurrency.equals("Libra") && toCurrency.equals("Real")) {
-            return amount * 7.18; // Conversão de Libra para Real
+            return amount * 7.18; 
         } else {
-            return 0; // Conversão não suportada ou inválida
+            return 0; 
         }
     }
 
-  //  private void exibirResultado(double convertedAmount) {
-   //     JLabel resultLabel = new JLabel("Conversão Realizada com Sucesso");
-    //    add(resultLabel);
-   //     revalidate();
-    //    repaint();
-   // }
+   private void exibirResultado() {     
+        statusLabel.setText("Conversão Realizada com Sucesso !");
+        add(statusLabel);
+        revalidate();
+        repaint();
+    }
 
     private void adicionarConversaoNaTabela(String moeda, double valorConversao) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault());
@@ -124,8 +126,8 @@ public class TelaConversorMoedas extends JFrame {
     }
 
     private void exibirMensagemErro(String mensagem) {
-        JLabel errorLabel = new JLabel(mensagem);
-        add(errorLabel);
+    	statusLabel.setText(mensagem);
+        add(statusLabel);
         revalidate();
         repaint();
     }
