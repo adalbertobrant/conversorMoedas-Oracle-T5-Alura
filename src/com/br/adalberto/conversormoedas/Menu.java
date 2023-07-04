@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 public class Menu {
 	private JFrame frame;
     private JComboBox<String> comboBox;
-    private String selectedOption;
+    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
     
     public Menu() {
     	frame = new JFrame("Menu");
@@ -48,25 +48,7 @@ public class Menu {
     }
     
     private void openOtherScreen() {
-        frame.dispose(); // Fecha a janela atual
-
-        JFrame otherFrame = new JFrame(this.selectedOption);
-        JButton backButton = new JButton("Voltar");
-
-        // Configurando a ação do botão de voltar
-        backButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                otherFrame.dispose(); // Fecha a janela atual
-                new Menu(); // Cria uma nova instância da classe Menu para voltar à tela anterior
-            }
-        });
-
-        otherFrame.setLayout(new FlowLayout());
-        otherFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        otherFrame.setSize(800, 500);
-        otherFrame.add(backButton);
-        otherFrame.setVisible(true);
+        
     }
     
     
