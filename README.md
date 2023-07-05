@@ -14,7 +14,7 @@ A versão utilizada do Java nesse projeto é a 17.
 
 Tela Inicial do Conversor de Moedas
 
-![](https://github.com/adalbertobrant/conversorMoedas-Oracle-T5-Alura/blob/main/imagens/telaInicial.png)
+![](https://github.com/adalbertobrant/conversorMoedas-Oracle-T5-Alura/blob/main/imagens/telaInicial-fundo.png)
 
 
 
