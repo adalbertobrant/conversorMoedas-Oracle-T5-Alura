@@ -1,6 +1,8 @@
 package com.br.adalberto.conversormoedas;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -13,6 +15,13 @@ public class Menu {
     
     public Menu() {
     	frame = new JFrame("Menu");
+    	// Imagem como tela de fundo
+    	ImageIcon imagem = new ImageIcon(getClass().getResource("coins.png"));
+    	Image image = imagem.getImage();
+    	Image scaledImage = image.getScaledInstance(700, 400, image.SCALE_SMOOTH);
+    	imagem = new ImageIcon(scaledImage);
+    	JLabel label = new JLabel(imagem);  	
+    	
         comboBox = new JComboBox<>(new String[]{"Conversor de Moedas"
         		//,// "Conversor de Temperaturas"
         		/*, "Conversor de Grandezas"*/});    
@@ -43,7 +52,9 @@ public class Menu {
 	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    frame.setSize(800, 500);
 	    frame.add(comboBox);
+	    frame.add(label);
 	    frame.setLocationRelativeTo(null);
+	    frame.setResizable(false);
 	    frame.setVisible(true);
     }
     
