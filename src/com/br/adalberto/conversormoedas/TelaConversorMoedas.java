@@ -1,6 +1,7 @@
 package com.br.adalberto.conversormoedas;
 
 import javax.swing.JComboBox;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -11,6 +12,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.BorderLayout;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -31,6 +33,7 @@ public class TelaConversorMoedas extends JFrame {
         setSize(800, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
+        setResizable(false);
         // Criação do JLabel
         statusLabel = new JLabel();
         add(statusLabel);
@@ -43,7 +46,7 @@ public class TelaConversorMoedas extends JFrame {
         // Criação do JTextField
         JTextField textField = new JTextField(10);
         add(textField);
-
+      
         JButton convertButton = new JButton("Converter");
         convertButton.addActionListener(new ActionListener() {
             @Override
@@ -61,6 +64,8 @@ public class TelaConversorMoedas extends JFrame {
         });
         add(convertButton);
 
+       
+
         JButton backButton = new JButton("Voltar");
         backButton.addActionListener(new ActionListener() {
             @Override
@@ -70,6 +75,8 @@ public class TelaConversorMoedas extends JFrame {
             }
         });
         add(backButton);
+        
+        
 
         // Criação da tabela de conversões
         tableModel = new DefaultTableModel();
@@ -82,6 +89,7 @@ public class TelaConversorMoedas extends JFrame {
         JScrollPane scrollPane = new JScrollPane(conversionTable);
         scrollPane.setPreferredSize(new java.awt.Dimension(780, 300));
         add(scrollPane);
+        
     }
 
     private double parseAmount(String input) {
