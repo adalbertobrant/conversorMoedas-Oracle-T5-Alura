@@ -25,9 +25,11 @@ public class TelaConversorMoedas extends JFrame {
     private DefaultTableModel tableModel;
     private JLabel statusLabel;
     private JTable conversionTable;
+    private ConversorMoedas conversor = new ConversorMoedas();
     private double amount;
 
-    public TelaConversorMoedas(String selectedOption) {
+
+	public TelaConversorMoedas(String selectedOption) {
         this.selectedOption = selectedOption;
 
         setSize(800, 500);
@@ -54,7 +56,8 @@ public class TelaConversorMoedas extends JFrame {
                 String input = textField.getText();
                 try {
                     double amount = parseAmount(input);
-                    double convertedAmount = converterMoeda(amount, comboBox.getSelectedItem().toString(), selectedCoin);
+                    setAmount(amount);
+                    double convertedAmount = conversor.converterMoeda(amount, comboBox.getSelectedItem().toString(), selectedCoin);
                     adicionarConversaoNaTabela(comboBox.getSelectedItem().toString(), convertedAmount);
                     exibirResultado();
                 } catch (NumberFormatException ex) {
@@ -98,21 +101,6 @@ public class TelaConversorMoedas extends JFrame {
         return Double.parseDouble(input);
     }
 
-    private double converterMoeda(double amount, String fromCurrency, String toCurrency) {
-      
-    	this.amount = amount;
-
-        
-        if (fromCurrency.equals("Dólar") && toCurrency.equals("Real")) {
-            return amount * 4.35; 
-        } else if (fromCurrency.equals("Euro") && toCurrency.equals("Real")) {
-            return amount * 5.27; 
-        } else if (fromCurrency.equals("Libra") && toCurrency.equals("Real")) {
-            return amount * 6.18; 
-        } else {
-            return 0; 
-        }
-    }
 
    private void exibirResultado() {     
         statusLabel.setText("Conversão Realizada com Sucesso !");
@@ -125,12 +113,7 @@ public class TelaConversorMoedas extends JFrame {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault());
         String data = dateFormat.format(new Date());
         moeda = moeda + " "+String.valueOf(amount);
-        tableModel.addRow(new Object[]{moeda, selectedCoin, formatCurrency(valorConversao), data});
-    }
-
-    private String formatCurrency(double value) {
-        DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
-        return decimalFormat.format(value);
+        tableModel.addRow(new Object[]{moeda, selectedCoin, conversor.formatCurrency(valorConversao), data});
     }
 
     private void exibirMensagemErro(String mensagem) {
@@ -139,4 +122,10 @@ public class TelaConversorMoedas extends JFrame {
         revalidate();
         repaint();
     }
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+    
+    
 }
